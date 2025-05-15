@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const AddCoffee = () => {
+
+  const navigate = useNavigate();
 
   const handleAddCoffee = e => {
     e.preventDefault();
@@ -14,7 +17,7 @@ const AddCoffee = () => {
     // console.log(formData);
     // console.log(addCoffeeData)
 
-    fetch('http://localhost:3000/addNewCoffee',{
+    fetch('http://localhost:3000/coffee',{
         method: "POST",
         headers: {
             'content-type': "application/json"
@@ -51,36 +54,37 @@ const AddCoffee = () => {
             <div className="mt-15 grid grid-cols-1 md:grid-cols-2 gap-5">
                 <fieldset className="raleway-font fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
                     <label className="label text-[#1B1A1A] font-bold">Name</label>
-                    <input type="text" name="coffee name" className="input w-full" placeholder="Enter coffee name"/>
+                    <input type="text" name="coffee_name" className="input w-full" placeholder="Enter coffee name"/>
                 </fieldset>
                 <fieldset className="raleway-font fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
                     <label className="label text-[#1B1A1A] font-bold">Quantity</label>
-                    <input type="text" name="coffee quantity" className="input w-full" placeholder="Enter coffee quantity"/>
+                    <input type="text" name="coffee_quantity" className="input w-full" placeholder="Enter coffee quantity"/>
                 </fieldset>
                 <fieldset className="raleway-font fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
                     <label className="label text-[#1B1A1A] font-bold">Supplier</label>
-                    <input type="text" name="coffee supplier" className="input w-full" placeholder="Enter coffee Supplier"/>
+                    <input type="text" name="coffee_supplier" className="input w-full" placeholder="Enter coffee Supplier"/>
                 </fieldset>
                 <fieldset className="raleway-font fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
                     <label className="label text-[#1B1A1A] font-bold">Taste</label>
-                    <input type="text" name="coffee taste" className="input w-full" placeholder="Enter coffee Taste"/>
+                    <input type="text" name="coffee_taste" className="input w-full" placeholder="Enter coffee Taste"/>
                 </fieldset>
                 <fieldset className="raleway-font fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
                     <label className="label text-[#1B1A1A] font-bold">Category</label>
-                    <input type="text" name="coffee category" className="input w-full" placeholder="Enter coffee category"/>
+                    <input type="text" name="coffee_category" className="input w-full" placeholder="Enter coffee category"/>
                 </fieldset>
                 <fieldset className="raleway-font fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
                     <label className="label text-[#1B1A1A] font-bold">Details</label>
-                    <input type="text" name="coffee details" className="input w-full" placeholder="Enter coffee details"/>
+                    <input type="text" name="coffee_details" className="input w-full" placeholder="Enter coffee details"/>
                 </fieldset>
             </div>
          
             <fieldset className="raleway-font fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
                 <label className="label text-[#1B1A1A] font-bold">Photo</label>
-                <input type="text" name="coffee photo" className="input w-full" placeholder="Enter coffee photo"/>
+                <input type="text" name="coffee_photo" className="input w-full" placeholder="Enter coffee photo"/>
             </fieldset>
           
-            <button className="btn w-full text-2xl bg-[#D2B48C] border-2 border-[#331A15]" type="submit" value="">Add Coffee</button>
+
+            <button onClick={() => navigate('/')} className="btn w-full text-2xl bg-[#D2B48C] border-2 border-[#331A15]" type="submit" value="">Add Coffee</button>
         </form>
       </div>
       

@@ -8,7 +8,7 @@ const AddCoffee = () => {
 
   const handleAddCoffee = e => {
     e.preventDefault();
-    console.log("Coffee added!")
+    // console.log("Coffee added!")
     const form = e.target;
 
     // * New thing to get all the field names**

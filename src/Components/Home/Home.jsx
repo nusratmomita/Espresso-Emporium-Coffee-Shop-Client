@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useLoaderData } from 'react-router';
 import CoffeeCard from '../CoffeeCard/CoffeeCard';
 import { BsFillCupHotFill } from "react-icons/bs";
@@ -6,6 +6,7 @@ import { BsFillCupHotFill } from "react-icons/bs";
 const Home = () => {
     const coffeeData = useLoaderData();
     // console.log(coffeeData);
+    const [coffees , setCoffees] = useState(coffeeData);
 
     return (
         <>
@@ -18,7 +19,12 @@ const Home = () => {
             </div>
             <div className='mb-20 grid grid-cols-1 lg:grid-cols-2 gap-4'>
                 {
-                    coffeeData.map((coffee) => <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>)
+                    coffees.map((coffee) => <CoffeeCard 
+                                                    key={coffee._id} 
+                                                    coffee={coffee}
+                                                    coffees={coffees}
+                                                    setCoffees={setCoffees}>
+                                                </CoffeeCard>)
                 }
             </div>
         </>

@@ -3,9 +3,10 @@ import { GrFormView } from "react-icons/gr";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
-const CoffeeCard = ({coffee}) => {
-    // console.log(coffee)
+const CoffeeCard = ({coffee , coffees , setCoffees}) => {
+    console.log(coffee)
 
     const handleDelete = (id) => {
         // console.log("item to be deleted,",id)
@@ -26,13 +27,17 @@ const CoffeeCard = ({coffee}) => {
                     })
                     .then(res=>res.json())
                     .then(data=>{
-                        if(data.deleteCount){
+                        if(data.deletedCount){
                             Swal.fire({
                             title: "Deleted!",
                             text: "Coffee has been deleted.",
                             icon: "success"
                             });
+
+                            const remainingCoffees = coffees.filter((coffee)=> coffee._id !== id);
+                            setCoffees(remainingCoffees);
                         }
+
                     })
                 }
             });
@@ -53,8 +58,12 @@ const CoffeeCard = ({coffee}) => {
                         <h1>Taste : {coffee.coffee_taste}</h1>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <button className="tooltip btn bg-[#D2B48C]" data-tip="View Details"><GrFormView size={35}></GrFormView></button>
-                        <button className="tooltip btn bg-[#331A15]" data-tip="Edit"><BiSolidEditAlt size={35} color='white'></BiSolidEditAlt></button>
+                        <Link to={`/viewDetails/${coffee._id}`}>
+                            <button className="tooltip btn bg-[#D2B48C]" data-tip="View Details"><GrFormView size={35}></GrFormView></button>
+                        </Link>
+                        <Link to={`/updateCoffee/${coffee._id}`}>
+                            <button className="tooltip btn bg-[#331A15]" data-tip="Edit"><BiSolidEditAlt size={35} color='white'></BiSolidEditAlt></button>
+                        </Link>
                         <button onClick={()=>handleDelete(coffee._id)} className="tooltip btn bg-[#EA4744]" data-tip="Delete"><MdDeleteForever size={35} color='white'></MdDeleteForever></button>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router';
 
 const CoffeeCard = ({coffee , coffees , setCoffees}) => {
-    console.log(coffee)
+    // console.log(coffee)
 
     const handleDelete = (id) => {
         // console.log("item to be deleted,",id)
@@ -47,7 +47,7 @@ const CoffeeCard = ({coffee , coffees , setCoffees}) => {
         <div className='raleway-font '>
             <div className="flex gap-5 p-8 bg-[#F5F4F1] shadow-sm border-2 border-[#331A15] rounded-2xl">
                 <figure>
-                    <img className='mt-10 ml-5 w-20 h-35 border-2 border-[#331A15] p-2'
+                    <img className='mt-10 ml-5 w-20 h-35 rounded-3xl border-2 border-[#331A15] p-2'
                     src={coffee.coffee_photo}
                     alt="Coffee" />
                 </figure>

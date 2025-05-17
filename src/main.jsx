@@ -8,6 +8,10 @@ import Home from './Components/Home/Home.jsx';
 import AddCoffee from './Components/AddCoffee/AddCoffee.jsx';
 import UpdateCoffee from './Components/UpdateCoffee/UpdateCoffee.jsx';
 import ViewDetails from './Components/ViewDetails/ViewDetails.jsx';
+import SignUp from './SignUp/SignUp.jsx';
+import SignIn from './SignIn/SignIn.jsx';
+import AuthProvider from './Auth/AuthProvider.jsx';
+import Users from './Users/Users.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,12 +37,25 @@ const router = createBrowserRouter([
         loader: ({params})=> fetch(`http://localhost:3000/coffee/${params.id}`),
         Component: ViewDetails
       },
+      {
+        path: '/signup',
+        Component: SignUp
+      },
+      {
+        path: '/signin',
+        Component: SignIn
+      },
+      {
+        path: '/users',
+        loader: () => fetch('http://localhost:3000/users'),
+        Component: Users
+      },
     ]
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
-   <RouterProvider router={router}>
-    <App/>
-   </RouterProvider>
+   <AuthProvider>
+    <RouterProvider router={router}></RouterProvider>
+   </AuthProvider>
 )

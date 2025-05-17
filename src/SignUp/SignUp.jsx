@@ -31,7 +31,7 @@ const SignUp = () => {
         }
         // console.log(userProfile)
 
-        fetch('http://localhost:3000/users',{
+        fetch('https://espresso-emporium-server-pearl.vercel.app/users',{
             method: "POST",
             headers:{
                 'content-type': 'application/json'

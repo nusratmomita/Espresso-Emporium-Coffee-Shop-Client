@@ -23,7 +23,7 @@ const Users = () => {
             confirmButtonText: "Yes, delete it!"
             }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/users/${id}`,{
+                fetch(`https://espresso-emporium-server-pearl.vercel.app/users/${id}`,{
                     method: "DELETE"
                 })
                 .then(res=>res.json())
@@ -31,7 +31,7 @@ const Users = () => {
                     // console.log("Data after deleting",data);
 
                     // TODO: delete user from firebase!!
-                    
+
                     if(data.deletedCount){
                         sweetAlert.fire({
                         title: "Deleted!",

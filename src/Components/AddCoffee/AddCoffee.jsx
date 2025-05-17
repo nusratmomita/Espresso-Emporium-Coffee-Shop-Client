@@ -17,7 +17,7 @@ const AddCoffee = () => {
     // console.log(formData);
     // console.log(addCoffeeData)
 
-    fetch('http://localhost:3000/coffee',{
+    fetch('https://espresso-emporium-server-pearl.vercel.app/coffee',{
         method: "POST",
         headers: {
             'content-type': "application/json"

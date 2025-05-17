@@ -21,7 +21,7 @@ const SignIn = () => {
             }
 
             // update last sign in time in the DB
-            fetch('http://localhost:3000/users', {
+            fetch('https://espresso-emporium-server-pearl.vercel.app/users', {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -45,10 +45,10 @@ const SignIn = () => {
             <form onSubmit={handleSignIn} className="fieldset">
               <h1 className="text-6xl font-bold">Sign In To Your account</h1>
               <label className="label">Email</label>
-              <input type="email" name="email" className="input w-full" placeholder="Email" />
+              <input type="email" name="email" className="input w-full" placeholder="Enter Email" />
 
               <label className="label">Password</label>
-              <input type="password" name="password" className="input w-full" placeholder="Password" />
+              <input type="password" name="password" className="input w-full" placeholder="ENter Password" />
 
               <button type="submit" className="btn btn-neutral mt-4">
                 Sign In

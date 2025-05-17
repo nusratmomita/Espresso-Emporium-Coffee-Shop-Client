@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: ()=>fetch('http://localhost:3000/coffee'),
+        loader: ()=>fetch('https://espresso-emporium-server-pearl.vercel.app/coffee'),
         Component: Home
       },
       {
@@ -29,12 +29,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/updateCoffee/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/coffee/${params.id}`),
+        loader: ({params}) => fetch(`https://espresso-emporium-server-pearl.vercel.app/coffee/${params.id}`),
         Component: UpdateCoffee
       },
       {
         path: '/viewDetails/:id',
-        loader: ({params})=> fetch(`http://localhost:3000/coffee/${params.id}`),
+        loader: ({params})=> fetch(`https://espresso-emporium-server-pearl.vercel.app/coffee/${params.id}`),
         Component: ViewDetails
       },
       {
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/users',
-        loader: () => fetch('http://localhost:3000/users'),
+        loader: () => fetch('https://espresso-emporium-server-pearl.vercel.app/users'),
         Component: Users
       },
     ]
